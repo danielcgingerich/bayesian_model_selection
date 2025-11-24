@@ -1,7 +1,7 @@
 library(MatrixGenerics)
 set.seed(1)
 
-setwd('C:/Users/dcginger/Desktop/lab_rotation___fred_wright/data/1.gsea/')
+setwd('/path/to/data')
 X = readRDS('3.prep_data___beta_sign___kidney.rds')
 Y = X$dose_vec
 Z = X[, 1, drop = FALSE]
@@ -314,4 +314,5 @@ if (iter %% 100 == 0){
 
 
 setwd(apoe_ccre_objects)
+
 saveRDS(master, paste0('4.spike_slab___', chr, '.rds'))
