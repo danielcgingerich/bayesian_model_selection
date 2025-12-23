@@ -1,4 +1,4 @@
-# Bayesian Model Selection
+# Fast and versatile Bayesian spike and slab
 ### Introduction
 This work builds upon Naqvi et al. Fast Laplace Approximation for Sparse Bayesian Spike and Slab Models, by adding in a random effect to produce more robust posterior inclusion probabilities (PIPs).
 
