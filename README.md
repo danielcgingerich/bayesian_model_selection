@@ -5,18 +5,17 @@ This work builds upon Naqvi et al. Fast Laplace Approximation for Sparse Bayesia
 When the main goal is variable selection, we treat the variance components as hyperparameters and estimate them by empirical Bayes (type II maximum likelihood).
 The model implemented can be described as follows:
 
-$$ 
-\begin{aligned}
-    &Y | \beta , \mu , \sigma^2 \sim \text{N} (X \beta + Z \mu, \sigma^2 ) \\
-    & \beta | \tau_1^2 , \tau_0^2 \sim \pi \text{N}(0, \tau_1^2) + (1-\pi) \text{N}(0, \tau_0^2) \\
-    & \mu | \delta^2 \sim \text{N} (0, \delta^2) \\
-    & P(\beta | Y, \mu, \sigma_2, \tau_1^2 , \tau_0^2 , \delta^2 ) = \frac{
-    P(Y | \beta , \mu , \sigma^2 ) P(\beta | \tau_1^2 , \tau_0^2 ) P (\mu | \delta^2 )
-    }{
-    P(Y | \mu, \sigma^2 , \tau_1^2 , \tau_0^2 ) P( \mu | \delta^2 )
-    }
-\end{aligned}
-$$
+$$ Y | \beta , \mu , \sigma^2 \sim \text{N} (X \beta + Z \mu, \sigma^2 ) $$
+
+$$ \beta | \tau_1^2 , \tau_0^2 \sim \pi \text{N}(0, \tau_1^2) + (1-\pi) \text{N}(0, \tau_0^2) $$
+
+$$ \mu | \delta^2 \sim \text{N} (0, \delta^2) $$
+
+$$ P(\beta | Y, \mu, \sigma_2, \tau_1^2 , \tau_0^2 , \delta^2 ) = \frac{
+P(Y | \beta , \mu , \sigma^2 ) P(\beta | \tau_1^2 , \tau_0^2 ) P (\mu | \delta^2 )
+}{
+P(Y | \mu, \sigma^2 , \tau_1^2 , \tau_0^2 ) P( \mu | \delta^2 )
+} $$
 
 Where $Y \in \mathbb{R}^{N\times 1}$ is a response vector; $X \in \mathbb{R}^{N \times p}$ is a matrix of predictors; $Z \in \mathbb{R}^{N \times m}$ is a one-
 hot-encoded group ID matrix; $\mu$ denotes the random effect vector; $\beta$ the (sparse) regression weights; $\sigma^2$ the fixed effects variance; $\tau_0^2$, $\tau_1^2$ the spike and slab variances, respectively; $\pi$ the spike and slab mixture proportion; $\delta^2$ the random effects variance component.
